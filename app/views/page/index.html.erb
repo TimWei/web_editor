@@ -1,7 +1,10 @@
+<div class="banner" >
+  <%= "Current Path = #{@path}" %>
+</div>
 <%= set_notice %>
 <div class="container">
   <% unless @current_path.empty? %>
-    <%=link_to '..', page_index_path(path: @current_path.sub(/\/[^\/]+$/,'') ) %>
+    <%=link_to 'back', page_index_path(path: @current_path.sub(/\/[^\/]+$/,'')) , :class=>"btn" %>
     <%# binding.pry %>
     </br>
   <% end %>
@@ -10,7 +13,7 @@
     <pre style="background-color:e1e2e4; font-weight: bold;">
 <%= @is_readable %>  <!--注意編排-->
     </pre>
-    <%= link_to "edit", file_edit_path(path: @current_path) %>
+    <%= link_to "edit", file_edit_path(path: @current_path) , :class=>"btn"  %>
     <%#= raw @is_readable.gsub(/\n/, '<br />') %>
   <% else %>
     <% @data.each do |t|%>
@@ -21,6 +24,10 @@
 </div>
 
 <style>
+  .banner{
+    font-size: 20px;
+    display:block;
+  }
  .alert {
   background-color: red;
   display: inline-block;
@@ -28,5 +35,10 @@
  .container {
   display: inline-block;
   float:left;
- }
+  }
+ .container .btn {
+    font-size: 15px;
+    background-color: #ffffcc;
+  }
+ 
 </style>
