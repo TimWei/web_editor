@@ -1,0 +1,8 @@
+  <pre style="background-color:e1e2e4; font-weight: bold;">
+<%= @body %>  <!--注意編排-->
+  </pre>
+<%= form_tag file_save_path %>
+<%= hidden_field_tag "data" , @body %>
+<%= hidden_field_tag "path" , @path %>
+<%= link_to 'cancel', page_index_path, style:"margin-top:10px;"%>
+<%= submit_tag 'save' ,style:"margin-top:10px;"%>

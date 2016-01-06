@@ -1,0 +1,5 @@
+<%= form_tag file_preview_path %>
+  <%= text_area_tag "body" , @is_readable ,style:"width:65%; height:75%; display:block;"%>
+  <%= hidden_field_tag "path" , @path %>
+<%= link_to 'back', page_index_path(path:params[:path] ,style:"margin-top:10px;")%>
+<%= submit_tag 'preview' ,style:"margin-top:10px;"%>

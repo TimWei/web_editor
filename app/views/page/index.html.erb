@@ -1,0 +1,32 @@
+<%= set_notice %>
+<div class="container">
+  <% unless @current_path.empty? %>
+    <%=link_to '..', page_index_path(path: @current_path.sub(/\/[^\/]+$/,'') ) %>
+    <%# binding.pry %>
+    </br>
+  <% end %>
+
+  <% unless @is_readable.empty? %>
+    <pre style="background-color:e1e2e4; font-weight: bold;">
+<%= @is_readable %>  <!--注意編排-->
+    </pre>
+    <%= link_to "edit", file_edit_path(path: @current_path) %>
+    <%#= raw @is_readable.gsub(/\n/, '<br />') %>
+  <% else %>
+    <% @data.each do |t|%>
+      <%=link_to t, page_index_path(path: @current_path + '/'+ t ) %>
+      </br>
+    <% end %>
+  <% end %>
+</div>
+
+<style>
+ .alert {
+  background-color: red;
+  display: inline-block;
+ }
+ .container {
+  display: inline-block;
+  float:left;
+ }
+</style>
